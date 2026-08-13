@@ -18,7 +18,7 @@ export const env = createEnv({
     APP_IFRAME_BASE_URL: z.string().optional(),
     APP_LOG_LEVEL: z.enum(["fatal", "error", "warn", "info", "debug", "trace"]).default("info"),
     FILE_APL_PATH: z.string().optional(),
-    MANIFEST_APP_ID: z.string().default("saleor.app.smtp"),
+    MANIFEST_APP_ID: z.string().default("com.arteze.smtp-app"),
     REST_APL_ENDPOINT: z.string().optional(),
     REST_APL_TOKEN: z.string().optional(),
     OTEL_ENABLED: booleanEnv.defaultFalse,
