@@ -1,0 +1,25 @@
+import { ok } from "neverthrow";
+import { beforeEach, vi } from "vitest";
+
+import { mockedAppConfigRepo } from "@/__tests__/mocks/app-config-repo";
+import { mockedZiinaConfig } from "@/__tests__/mocks/mock-ziina-config";
+
+vi.mock("next/server", async (importOriginal) => ({
+  ...(await importOriginal<typeof import("next/server")>()),
+  after: (fn: () => void) => fn(),
+}));
+
+process.env.TZ = "UTC";
+
+vi.stubEnv("SECRET_KEY", "test_secret_key");
+vi.stubEnv("AWS_REGION", "localhost");
+vi.stubEnv("AWS_ACCESS_KEY_ID", "");
+vi.stubEnv("AWS_SECRET_ACCESS_KEY", "");
+vi.stubEnv("AWS_ENDPOINT_URL", "http://localhost:8000");
+vi.stubEnv("DYNAMODB_MAIN_TABLE_NAME", "ziina-main-table");
+
+beforeEach(() => {
+  mockedAppConfigRepo.getZiinaConfig.mockImplementation(async () => ok(mockedZiinaConfig));
+});
+
+export {};

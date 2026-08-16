@@ -72,6 +72,7 @@ export default {
     "upserted",
     "upserting",
     "upstash",
+    "ziina",
     "urql",
     "BYOA",
     "Dockerfiles",
