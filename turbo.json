@@ -36,14 +36,7 @@
       "inputs": ["$TURBO_DEFAULT$", ".env"],
       "env": [
         "SMTP_SECRET_KEY",
-        "SMTP_APL",
-        "SMTP_UPSTASH_URL",
-        "SMTP_UPSTASH_TOKEN",
-        "ZIINA_SECRET_KEY",
-        "ZIINA_APL",
-        "ZIINA_UPSTASH_URL",
-        "ZIINA_UPSTASH_TOKEN",
-        "ZIINA_CONFIG_STORAGE_MODE"
+        "ZIINA_SECRET_KEY"
       ]
     },
     "check-types": {
