@@ -1,10 +1,12 @@
 {
   "services": {
     "smtp-app": {
-      "root": "apps/smtp"
+      "root": "apps/smtp",
+      "framework": "nextjs"
     },
     "ziina-app": {
-      "root": "apps/ziina"
+      "root": "apps/ziina",
+      "framework": "nextjs"
     }
   },
   "rewrites": [
