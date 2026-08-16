@@ -1,0 +1,24 @@
+{
+  "services": {
+    "smtp-app": {
+      "root": "apps/smtp"
+    },
+    "ziina-app": {
+      "root": "apps/ziina"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/smtp/(.*)",
+      "destination": {
+        "service": "smtp-app"
+      }
+    },
+    {
+      "source": "/ziina/(.*)",
+      "destination": {
+        "service": "ziina-app"
+      }
+    }
+  ]
+}
