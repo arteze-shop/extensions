@@ -18,6 +18,11 @@ export interface UpstashClientLike {
 
 type UpstashCommand = [string, ...string[]];
 
+type UpstashResponse = {
+  result?: string | null;
+  error?: string;
+};
+
 type ConstructorParams = {
   url?: string;
   token?: string;
@@ -59,15 +64,15 @@ export class UpstashClient implements UpstashClientLike {
       });
     }
 
-    const [data, error] = (await response.json()) as [string | null, string | null];
+    const parsedResponse = (await response.json()) as UpstashResponse;
 
-    if (error) {
+    if ("error" in parsedResponse) {
       throw new BaseError("Upstash REST API returned an error", {
-        cause: error,
+        cause: parsedResponse.error,
       });
     }
 
-    return data;
+    return parsedResponse.result ?? null;
   }
 
   async get(key: string): Promise<string | null> {
