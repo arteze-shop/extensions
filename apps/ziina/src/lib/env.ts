@@ -26,7 +26,7 @@ export const env = createEnv({
     DYNAMODB_MAIN_TABLE_NAME: z.string().optional(),
     DYNAMODB_REQUEST_TIMEOUT_MS: z.coerce.number().default(5_000),
     DYNAMODB_CONNECTION_TIMEOUT_MS: z.coerce.number().default(2_000),
-    MANIFEST_APP_ID: z.string().default("saleor.app.payment.ziina"),
+    MANIFEST_APP_ID: z.string().default("com.arteze.ziina-app"),
     OTEL_ACCESS_TOKEN: z.string().optional(),
     OTEL_ENABLED: booleanEnv.defaultFalse,
     OTEL_SERVICE_NAME: z.string().default("saleor-app-payment-ziina"),
