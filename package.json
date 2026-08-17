@@ -5,7 +5,7 @@
   "license": "(BSD-3-Clause AND CC-BY-4.0)",
   "type": "module",
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build --filter=smtp... --filter=ziina...",
     "check-spelling": "cspell '**/*.{jsx,tsx,js,ts,md,mdx}'",
     "check-types": "turbo run check-types",
     "deploy": "turbo run deploy",
