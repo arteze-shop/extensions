@@ -11,9 +11,21 @@
   },
   "rewrites": [
     {
+      "source": "/smtp",
+      "destination": {
+        "service": "smtp-app"
+      }
+    },
+    {
       "source": "/smtp/(.*)",
       "destination": {
         "service": "smtp-app"
+      }
+    },
+    {
+      "source": "/ziina",
+      "destination": {
+        "service": "ziina-app"
       }
     },
     {
