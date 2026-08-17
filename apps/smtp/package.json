@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "SECRET_KEY=$SMTP_SECRET_KEY next build",
+    "build": "next build",
     "check-types": "tsc",
     "deploy": "tsx --require dotenv/config ./scripts/deploy.ts",
     "dev": "NODE_OPTIONS='--inspect' next dev",

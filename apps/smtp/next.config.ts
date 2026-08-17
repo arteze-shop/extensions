@@ -3,6 +3,9 @@ import { type NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: "/smtp",
+  env: {
+    SECRET_KEY: process.env.SMTP_SECRET_KEY,
+  },
   reactStrictMode: true,
   transpilePackages: [
     "@saleor/apps-otel",

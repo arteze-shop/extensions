@@ -3,6 +3,9 @@ import { type NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: "/ziina",
+  env: {
+    SECRET_KEY: process.env.ZIINA_SECRET_KEY,
+  },
   reactStrictMode: true,
   transpilePackages: [
     "@saleor/apps-logger",
