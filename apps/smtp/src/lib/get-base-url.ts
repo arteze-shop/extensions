@@ -1,3 +1,5 @@
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
+
 export const getBaseUrl = (headers: { [name: string]: string | string[] | undefined }): string => {
   const { host, "x-forwarded-proto": xForwardedProto = "http" } = headers;
 
@@ -8,5 +10,5 @@ export const getBaseUrl = (headers: { [name: string]: string | string[] | undefi
   // prefer https over other protocols
   const protocol = protocols.find((el) => el === "https") || protocols[0];
 
-  return `${protocol}://${host}`;
+  return `${protocol}://${host}${getAppBasePath()}`;
 };

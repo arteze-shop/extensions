@@ -1,6 +1,7 @@
 import { ObservabilityAttributes } from "@saleor/apps-otel/src/observability-attributes";
 import { withSpanAttributesAppRouter } from "@saleor/apps-otel/src/with-span-attributes";
 import { compose } from "@saleor/apps-shared/compose";
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
 import { captureException } from "@sentry/nextjs";
 
 import {
@@ -77,7 +78,7 @@ const handler = transactionInitializeSessionWebhookDefinition.createHandler(
         event: ctx.payload,
         saleorSchemaVersion: ctx.schemaVersion,
         problemReporter,
-        appUrl: ctx.baseUrl,
+        appUrl: `${ctx.baseUrl}${getAppBasePath()}`,
       });
 
       return result.match(

@@ -84,7 +84,7 @@ const runMigrations = async () => {
             return [];
           }
 
-          const baseUrl = new URL(targetUrl).origin;
+          const baseUrl = targetUrl;
 
           const appWebhooks = [
             {

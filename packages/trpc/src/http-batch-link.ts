@@ -1,5 +1,6 @@
-import { AppBridge } from "@saleor/app-sdk/app-bridge";
+import { type AppBridge } from "@saleor/app-sdk/app-bridge";
 import { SALEOR_API_URL_HEADER, SALEOR_AUTHORIZATION_BEARER_HEADER } from "@saleor/app-sdk/headers";
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
 import { httpBatchLink } from "@trpc/client";
 
 function getBaseUrl() {
@@ -11,7 +12,7 @@ function getBaseUrl() {
 
 export const createHttpBatchLink = (appBridgeInstance?: AppBridge) => {
   return httpBatchLink({
-    url: `${getBaseUrl()}/api/trpc`,
+    url: `${getBaseUrl()}${getAppBasePath()}/api/trpc`,
     headers() {
       const { token, saleorApiUrl } = appBridgeInstance?.getState() || {};
 

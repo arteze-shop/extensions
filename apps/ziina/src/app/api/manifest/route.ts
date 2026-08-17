@@ -2,6 +2,7 @@ import { createManifestHandler } from "@saleor/app-sdk/handlers/next-app-router"
 import { type AppManifest } from "@saleor/app-sdk/types";
 import { withSpanAttributesAppRouter } from "@saleor/apps-otel/src/with-span-attributes";
 import { compose } from "@saleor/apps-shared/compose";
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
 
 import { env } from "@/lib/env";
 import { withLoggerContext } from "@/lib/logger-context";
@@ -16,14 +17,15 @@ import { transactionRefundRequestedWebhookDefinition } from "../webhooks/saleor/
 
 const handler = createManifestHandler({
   async manifestFactory({ appBaseUrl }) {
-    const iframeBaseUrl = env.APP_IFRAME_BASE_URL ?? appBaseUrl;
-    const apiBaseUrl = env.APP_API_BASE_URL ?? appBaseUrl;
+    const appBaseUrlWithPath = `${appBaseUrl}${getAppBasePath()}`;
+    const iframeBaseUrl = env.APP_IFRAME_BASE_URL ?? appBaseUrlWithPath;
+    const apiBaseUrl = env.APP_API_BASE_URL ?? appBaseUrlWithPath;
 
     const manifest: AppManifest = {
       about:
         "App that allows merchants using the Saleor e-commerce platform to accept online payments from customers using Ziina as their payment processor.",
       appUrl: iframeBaseUrl,
-      author: "Saleor Commerce",
+      author: "Khalil Ali",
       brand: {
         logo: {
           default: `${apiBaseUrl}/logo.png`,

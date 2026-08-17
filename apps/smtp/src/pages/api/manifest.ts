@@ -1,6 +1,7 @@
 import { createManifestHandler } from "@saleor/app-sdk/handlers/next";
 import { type AppManifest } from "@saleor/app-sdk/types";
 import { withSpanAttributes } from "@saleor/apps-otel/src/with-span-attributes";
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
 
 import packageJson from "../../../package.json";
 import { appDeletedWebhook } from "../../app/api/webhooks/app-deleted/webhook-definition";
@@ -9,8 +10,9 @@ import { env } from "../../env";
 export default withSpanAttributes(
   createManifestHandler({
     async manifestFactory({ appBaseUrl }) {
-      const iframeBaseUrl = env.APP_IFRAME_BASE_URL ?? appBaseUrl;
-      const apiBaseURL = env.APP_API_BASE_URL ?? appBaseUrl;
+      const appBaseUrlWithPath = `${appBaseUrl}${getAppBasePath()}`;
+      const iframeBaseUrl = env.APP_IFRAME_BASE_URL ?? appBaseUrlWithPath;
+      const apiBaseURL = env.APP_API_BASE_URL ?? appBaseUrlWithPath;
 
       const manifest: AppManifest = {
         about:

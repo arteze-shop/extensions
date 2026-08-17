@@ -1,4 +1,5 @@
 import { SALEOR_API_URL_HEADER, SALEOR_AUTHORIZATION_BEARER_HEADER } from "@saleor/app-sdk/headers";
+import { getAppBasePath } from "@saleor/apps-shared/get-app-base-path";
 import { httpBatchLink } from "@trpc/client";
 import { createTRPCNext } from "@trpc/next";
 
@@ -21,7 +22,7 @@ export const trpcClient = createTRPCNext<AppRouter>({
     return {
       links: [
         httpBatchLink({
-          url: `${getBaseUrl()}/api/trpc`,
+          url: `${getBaseUrl()}${getAppBasePath()}/api/trpc`,
           headers() {
             const { token, saleorApiUrl } = appBridgeInstance?.getState() || {};
 
