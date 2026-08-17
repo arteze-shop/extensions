@@ -1,8 +1,8 @@
 import { type APL } from "@saleor/app-sdk/APL";
 import { DynamoAPL } from "@saleor/app-sdk/APL/dynamodb";
 import { FileAPL } from "@saleor/app-sdk/APL/file";
-import { UpstashAPL } from "@saleor/app-sdk/APL/upstash";
 import { SaleorApp } from "@saleor/app-sdk/saleor-app";
+import { NamespacedUpstashAPL } from "@saleor/apps-shared/namespaced-upstash-apl";
 
 import { getDynamoEnv } from "@/lib/env-dynamodb";
 import { createLogger } from "@/lib/logger";
@@ -33,7 +33,7 @@ switch (env.APL) {
   }
 
   case "upstash":
-    apl = new UpstashAPL();
+    apl = new NamespacedUpstashAPL("ziina");
 
     break;
 

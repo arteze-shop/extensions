@@ -13,6 +13,7 @@
     "./iframe-protected-wrapper": "./src/iframe-protected-wrapper.tsx",
     "./is-in-iframe": "./src/is-in-iframe.ts",
     "./metadata-manager": "./src/metadata-manager.ts",
+    "./namespaced-upstash-apl": "./src/namespaced-upstash-apl.ts",
     "./no-ssr-wrapper": "./src/no-ssr-wrapper.tsx",
     "./permissions": "./src/permissions.ts",
     "./race": "./src/race.ts",
