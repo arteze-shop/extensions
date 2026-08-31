@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   env: {
     SECRET_KEY: process.env.ZIINA_SECRET_KEY,
     APP_API_BASE_URL: process.env.ZIINA_APP_API_BASE_URL,
+    MANIFEST_APP_ID: process.env.ZIINA_MANIFEST_APP_ID,
   },
   reactStrictMode: true,
   transpilePackages: [
