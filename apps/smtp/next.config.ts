@@ -35,7 +35,11 @@ const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Ignore opentelemetry warnings - https://github.com/open-telemetry/opentelemetry-js/issues/4173
-      config.ignoreWarnings = [{ module: /require-in-the-middle/ }, { module: /mjml/ }];
+      config.ignoreWarnings = [
+        { module: /require-in-the-middle/ },
+        { module: /mjml/ },
+        { module: /protobufjs/ },
+      ];
     }
 
     /*
