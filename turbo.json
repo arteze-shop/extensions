@@ -39,7 +39,8 @@
       "inputs": ["$TURBO_DEFAULT$", ".env"],
       "env": [
         "SMTP_SECRET_KEY",
-        "ZIINA_SECRET_KEY"
+        "ZIINA_SECRET_KEY",
+        "ZIINA_APP_API_BASE_URL"
       ]
     },
     "check-types": {

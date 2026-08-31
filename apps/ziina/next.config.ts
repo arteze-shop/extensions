@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   basePath: "/ziina",
   env: {
     SECRET_KEY: process.env.ZIINA_SECRET_KEY,
+    APP_API_BASE_URL: process.env.ZIINA_APP_API_BASE_URL,
   },
   reactStrictMode: true,
   transpilePackages: [
@@ -26,7 +27,7 @@ const nextConfig: NextConfig = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       // Ignore opentelemetry warnings - https://github.com/open-telemetry/opentelemetry-js/issues/4173
-      config.ignoreWarnings = [{ module: /require-in-the-middle/ }];
+      config.ignoreWarnings = [{ module: /require-in-the-middle/ }, { module: /protobufjs/ }];
     }
 
     return config;

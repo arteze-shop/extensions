@@ -3,6 +3,7 @@ import { type inferAsyncReturnType } from "@trpc/server";
 import { type FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch";
 import { type Client } from "urql";
 
+import { env } from "@/lib/env";
 import { type AppConfigRepo } from "@/modules/app-config/repositories/app-config-repo";
 import { appConfigRepoImpl } from "@/modules/app-config/repositories/app-config-repo-impl";
 
@@ -13,7 +14,7 @@ export const createTrpcContextAppRouter = async ({ req }: FetchCreateContextFnOp
     appId: undefined as undefined | string,
     apiClient: null as Client | null,
     configRepo: appConfigRepoImpl as AppConfigRepo,
-    appUrl: req.headers.get("origin"),
+    appUrl: env.APP_API_BASE_URL || req.headers.get("origin") || "",
   };
 };
 
