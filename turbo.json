@@ -41,7 +41,13 @@
         "SMTP_SECRET_KEY",
         "ZIINA_SECRET_KEY",
         "ZIINA_APP_API_BASE_URL",
-        "ZIINA_MANIFEST_APP_ID"
+        "ZIINA_MANIFEST_APP_ID",
+        "ALLOWED_DOMAIN_PATTERN",
+        "APL",
+        "CONFIG_STORAGE_MODE",
+        "CONFIG_STORAGE_FILE_PATH",
+        "AWS_*",
+        "DYNAMODB_*"
       ]
     },
     "check-types": {
